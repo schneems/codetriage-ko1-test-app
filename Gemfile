@@ -25,7 +25,6 @@ gem 'rrrretry'
 gem 'jquery-rails'
 gem 'devise'
 gem 'rack-timeout'
-gem 'unicorn'
 gem 'mail_view',   '~> 1.0.2'
 
 group :development do
