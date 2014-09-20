@@ -1,0 +1,9 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+
+production:
+  <<: *defaults
+  database: triage_production
