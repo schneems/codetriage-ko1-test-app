@@ -46,6 +46,21 @@ http://localhost:3000/modsognir/rundown/subscribers
 http://localhost:3000/jnunemaker/httparty
 ```
 
-## Next
+## Performance Rake Tasks
 
-Let me know what else you need. Since this issue only shows up over time, I don't know what kind of a single benchmark we can run. If we figure this out, I can put some more work into the issue.
+There are several rake tasks you can run for performance benchmarking
+
+```
+$ bundle exec rake -f perf.rake -T
+rake allocated_objects  # outputs allocated object diff after app is called TEST_CNT times
+rake gc                 # outputs GC::Profiler.report data while app is called TEST_CNT times
+rake test               # hits the url TEST_CNT times
+```
+
+Run them like this:
+
+```
+$ TEST_CNT=100 bundle exec rake -f perf.rake test
+```
+
+
