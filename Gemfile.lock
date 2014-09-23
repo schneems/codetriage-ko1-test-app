@@ -45,6 +45,7 @@ GEM
     addressable (2.3.5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    benchmark-ips (2.0.0)
     bluecloth (2.2.0)
     builder (3.2.2)
     capybara (2.3.0)
@@ -173,13 +174,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.2)
       sprockets-rails (~> 2.0)
-    rails_12factor (0.0.2)
-      rails_serve_static_assets
-      rails_stdout_logging
     rails_autolink (1.1.5)
       rails (> 3.1)
-    rails_serve_static_assets (0.0.1)
-    rails_stdout_logging (0.0.1)
     railties (4.1.2)
       actionpack (= 4.1.2)
       activesupport (= 4.1.2)
@@ -263,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  benchmark-ips
   bluecloth
   capybara (= 2.3.0)
   coffee-rails (~> 4.0.0)
@@ -285,7 +282,6 @@ DEPENDENCIES
   quiet_assets
   rack-timeout
   rails (= 4.1.2)
-  rails_12factor
   rails_autolink
   resque
   resque_def

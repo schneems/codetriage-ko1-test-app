@@ -72,5 +72,12 @@ CodeTriage::Application.configure do
 
   config.eager_load = true
 
-  config.log_tags = [:uuid]
+  # config.log_tags = [:uuid]
+
+  # logger        = Logger.new(StringIO.new)
+  # logger        = ActiveSupport::TaggedLogging.new(logger) if defined?(ActiveSupport::TaggedLogging)
+  # logger.level  = Logger.const_get("DEBUG")
+  # config.logger = logger
+
+  config.logger = ::Logger.new("/dev/null")
 end
