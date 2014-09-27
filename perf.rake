@@ -36,6 +36,13 @@ task :test do
   }
 end
 
+desc "ips"
+task :ips do
+  Benchmark.ips do |x|
+    x.report("ips") { call_app }
+  end
+end
+
 desc "outputs GC::Profiler.report data while app is called TEST_CNT times"
 task :gc do
   GC::Profiler.enable
@@ -56,4 +63,28 @@ task :allocated_objects do
   finish.each do |k,v|
     p k => (v - start[k]) / TEST_CNT.to_f
   end
+end
+
+desc "profiles ruby allocation"
+task :mem do
+  call_app
+  GC.start
+
+  first  = StringIO.new
+  second = StringIO.new
+  MemoryProfiler.report do
+    call_app
+  end.pretty_print(first)
+
+  puts first.string
+
+  sleep 5
+  
+  GC.start
+
+  MemoryProfiler.report do
+    TEST_CNT.times { call_app }
+  end.pretty_print(second)
+
+  puts second.string
 end

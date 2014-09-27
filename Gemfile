@@ -61,3 +61,6 @@ group :assets do
 end
 
 gem 'benchmark-ips'
+
+gem 'memory_profiler'
+
